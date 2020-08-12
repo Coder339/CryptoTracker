@@ -1,19 +1,16 @@
 import 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
-import React, { useMemo, useState, useEffect,useReducer } from 'react';
+import React, { useMemo, useEffect,useReducer } from 'react';
 import { 
-  Button, 
   View,
   StyleSheet, 
-  Text,
   ActivityIndicator } from 'react-native';
 import { 
-  Appearance, 
+  
   AppearanceProvider, 
-  useColorScheme } from 'react-native-appearance';
+  } from 'react-native-appearance';
 
 import { createStackNavigator } from "@react-navigation/stack";
-// import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer,DarkTheme,DefaultTheme } from '@react-navigation/native';
 
 import  HomeNavigation from './components/HomeNavigation';
@@ -50,8 +47,6 @@ const RootStackScreen = ({ userToken }) => (
 
 
 export default function App() {
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [userToken, setUserToken] = useState(null);
 
   
 
@@ -62,9 +57,9 @@ export default function App() {
   };
 
   const loginReducer = (prevState,action) => {
-    // console.log('vikas')
+  
     console.log(action.type)
-    // console.log(action.token)
+
     switch( action.type ) {
       case 'RETRIEVE_TOKEN':
         return {
@@ -94,7 +89,7 @@ export default function App() {
           isLoading: false,
         };
     }
-    // console.log(action.token)
+
   };
   
   const [loginState,dispatch] = useReducer(loginReducer,initialLoginState)
@@ -102,12 +97,7 @@ export default function App() {
 
   const authContext = useMemo(() => ({
       signIn: async(username,password) => {
-        // setIsLoading(false);
-        // setUserToken("asdf");
-        // console.log('test')
 
-        console.log(username)
-        // console.log(password)
         let userToken;
         userToken = null;
         if(username === 'admin' && password === 'admin123'){
@@ -119,19 +109,17 @@ export default function App() {
           }
         }
         dispatch({ type: 'LOGIN',id: username, token: userToken})
-        // console.log(userToken)
+  
       },
       signUp: () => {
         setIsLoading(false);
         setUserToken("asdf");
       },
       signOut: async() => {
-        // setIsLoading(false);
-        // setUserToken(null);
+
         try {
           await AsyncStorage.removeItem('userToken')
           console.log('token')
-          // console.log('userToken',userToken)
         } catch (e) {
           console.log(e)
         }
@@ -143,7 +131,7 @@ export default function App() {
 
   useEffect(() => {
     setTimeout(async() => {
-      // setIsLoading(false);
+  
       let userToken;
       userToken = null;
       try {
@@ -189,7 +177,6 @@ const styles = StyleSheet.create({
   image: {
     width: 400,
     height: 650,
-    // resizeMode: 'contain',
 
   }
 });

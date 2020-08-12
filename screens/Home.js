@@ -110,17 +110,6 @@ export default function Home({route,navigation}) {
     
     )
 
-    // const Item1 =  <CurrencyItem todo={cryptoBit}/>
-    // const Item2 =  <CurrencyItem todo={cryptoEth}/>
-    // const Item3 =  <CurrencyItem todo={cryptoXrp}/>
-    // const Item4 =  <CurrencyItem todo={cryptoLtc}/>
-                                    
-    // const [cryptoList,setCryptoList] = useState([])  
-    // const Item = cryptoList.map((todo,index) => 
-    //                             todo
-                                    
-    //                             )
-
     return (
         <View style={styles.screen}>
             <View style={{ 
