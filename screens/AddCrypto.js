@@ -14,7 +14,9 @@ export default function AddCrypto({ navigation,route }) {
                 value={currency}
                 
             />
-            <Button title='Add Cryptocurrency' onPress={() => {navigation.navigate('Home',{currency:currency})}}/>
+            <View style={{width:100}}>
+               <Button title='Add' onPress={() => {navigation.navigate('Home',{currency:currency})}}/>
+            </View>
         
         </View>
     )
